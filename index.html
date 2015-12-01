@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>收藏</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../../css/ratchet.css">
+    <link rel="stylesheet" type="text/css" href="css/datePicker.css">
+    <style>
+    .dslider{ position:relative; margin:20px; width:200px; height:5px; background:#0e0;}
+.dslider .cross{ height:100%; }
+.dslider .handler{ position:absolute;top:-8px; width:20px; border-radius:15px; height:20px; display:block; }
+    </style>
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.js"></script>
+    <script type="text/javascript" src="jquery.slideBar.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("#slider1,#slider2").slideBar({max:190,min:90,crossC:"#3ef",defalutNum:100});
+           // $("#slider2").slideBar({max:100,min:0,crossC:"#3ef",defalutNum:100});
+        });
+    </script>
+</head>
+<body>
+    <div class="content">
+        <div class="slider-wrap">
+            <input type="text" name="slider1"/>
+            <div class="dslider" id="slider1" data-cell="slider1">
+                <div class="cross"></div>
+                <div class="handler"></div>
+            </div>
+        </div>  
+        <div class="slider-wrap">
+            <input type="text" name="slider2"/>
+            <div class="dslider" id="slider2" data-cell="slider2">
+                <div class="cross"></div>
+                <div class="handler"></div>
+            </div>
+        </div>    
+    </div>
+</body>
