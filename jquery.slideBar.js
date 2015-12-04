@@ -38,6 +38,7 @@ describe:zepto,jquery通用
 				evt.stopPropagation();
 				evt.preventDefault();                                
 				$this.isSlider=true;
+				var handlerRelativeL=evt.pageX-$(this).offset().left;
 				/*对文档绑定mousemove事件，滑动就是在该阶段发生*/
 				$(document).on("mousemove",function(e){
 					thisX=$this.offset().left;//当前元素相对文档的X坐标
@@ -46,7 +47,7 @@ describe:zepto,jquery通用
 					else if(e.pageX>=(thisX+thisW-handlerW))
 					{handler.css({left:thisW-handlerW+"px"});}
 					else
-					{handler.css({left:(e.pageX-thisX)+"px"});}
+					{handler.css({left:(e.pageX-thisX-handlerRelativeL)+"px"});}
 					var value=(parseFloat(handler.position().left/sliderW)*(opt.max-opt.min)+opt.min).toString();
 					if (value.indexOf(".")>0||opt.decimal>0){
 					 	value = value.substr(0,value.indexOf(".")+opt.decimal);
