@@ -17,6 +17,9 @@ describe:zepto,jquery通用
         decimal: 0, //保留几位小数
         callBack: function(v) { //滑动时的执行函数
             //console.log(value);
+        },
+        endCb:function(v){//滑动结束时的执行函数
+
         }
     }
     $.fn.slideBar = function(option) {
@@ -76,6 +79,7 @@ describe:zepto,jquery通用
                 /*鼠标松开后注销document的mousemove事件*/
                 $(document).mouseup(function(e) {
                     $(document).off("mousemove");
+                    opt.endCb(value);
                 });
             } else { //for mobile
                 var handlerInitX = 0;
@@ -86,6 +90,7 @@ describe:zepto,jquery通用
                 handler[0].addEventListener('touchend', function(event) {
                     event.preventDefault();
                     $this.isSlider = false;
+                    opt.endCb(value);
                 }, false);
                 handler[0].addEventListener('touchmove', function(event) {
                     event.preventDefault();
